@@ -1,3 +1,5 @@
+import { DetailContactPage } from './../pages/detail-contact/detail-contact';
+import { HttpClient } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -11,6 +13,9 @@ import { ActionPage } from '../pages/action/action';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PeopleProvider } from '../providers/people/people';
+import { HttpClientModule } from '@angular/common/http';
+import { DetailContactPage } from ' ../pages/detail-contact/detail-contact';
 
 @NgModule({
   declarations: [
@@ -19,11 +24,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    ActionPage
+    ActionPage,
+    DetailContactPage
+   
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, HttpClientModule, 
+
     IonicModule.forRoot(MyApp,{
       'iconMode': 'ios',
       'tabsLayout': 'icon-left',
@@ -40,12 +48,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    ActionPage
+    ActionPage,
+    DetailContactPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    PeopleProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
   ]
 })
 export class AppModule {}
